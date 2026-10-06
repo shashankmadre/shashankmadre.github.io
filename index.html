@@ -4,45 +4,1560 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shashank Madre — Cybersecurity Portfolio</title>
+
 <style>
 :root{
-  --bg:#070b12;--surface:#0d1420;--surface2:#111b2a;--text:#edf6ff;--muted:#91a4b8;
-  --line:rgba(137,185,220,.16);--cyan:#48e6ff;--blue:#6c8cff;--orange:#ff9f43;--green:#61f2a4;
-  --shadow:0 24px 80px rgba(0,0,0,.38);--radius:20px;
+  --bg:#070b12;
+  --surface:#0d1420;
+  --surface2:#111b2a;
+  --text:#edf6ff;
+  --muted:#91a4b8;
+  --line:rgba(137,185,220,.16);
+  --cyan:#48e6ff;
+  --blue:#6c8cff;
+  --orange:#ff9f43;
+  --green:#61f2a4;
+  --shadow:0 24px 80px rgba(0,0,0,.38);
+  --radius:20px;
 }
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.6;overflow-x:hidden}
-#app{min-height:100vh;background:var(--bg)}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92vw);margin:auto}
-#matrix{position:fixed;inset:0;z-index:0;opacity:.13;pointer-events:none}.noise{position:fixed;inset:0;z-index:1;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:screen}
-nav{position:sticky;top:0;z-index:20;background:rgba(7,11,18,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.navin{height:70px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:.08em}.brand span{color:var(--cyan)}.links{display:flex;gap:24px;color:var(--muted);font-size:14px}.links a{transition:.25s}.links a:hover{color:var(--cyan)}
-.hero{position:relative;z-index:2;min-height:calc(100vh - 70px);display:grid;place-items:center;padding:90px 0 80px}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(72,230,255,.25);background:rgba(72,230,255,.06);color:var(--cyan);padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green);animation:pulse 1.7s infinite}@keyframes pulse{50%{opacity:.35;transform:scale(.65)}}h1{font-size:clamp(52px,8vw,94px);line-height:.9;letter-spacing:-.065em;margin:24px 0 24px}.gradient{background:linear-gradient(100deg,var(--text),var(--cyan) 55%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{font-size:18px;color:var(--muted);max-width:680px}.cta{display:flex;gap:13px;flex-wrap:wrap;margin-top:30px}.btn{padding:13px 18px;border-radius:12px;border:1px solid var(--line);background:var(--surface);font-weight:800;font-size:14px;transition:.25s;cursor:pointer}.btn.primary{background:var(--cyan);color:#031017;border-color:var(--cyan)}.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(72,230,255,.12)}
-.console{background:linear-gradient(145deg,rgba(17,27,42,.94),rgba(8,13,21,.94));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);overflow:hidden;transform:perspective(1000px) rotateY(-4deg);animation:float 5s ease-in-out infinite}@keyframes float{50%{transform:perspective(1000px) rotateY(-2deg) translateY(-8px)}}.bar{padding:13px 16px;border-bottom:1px solid var(--line);display:flex;gap:7px}.ball{width:9px;height:9px;border-radius:50%;background:#506070}.terminal{padding:25px;font:13px/2.05 ui-monospace,SFMono-Regular,Menlo,monospace;color:#b9cad8}.prompt{color:var(--cyan)}.ok{color:var(--green)}.warn{color:var(--orange)}.cursor{display:inline-block;width:8px;height:16px;background:var(--cyan);vertical-align:-3px;animation:blink 1s steps(2) infinite}@keyframes blink{50%{opacity:0}}
-section{position:relative;z-index:2;padding:95px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:32px}.kicker{font:800 12px ui-monospace,monospace;color:var(--cyan);letter-spacing:.18em;text-transform:uppercase}.section-head h2{font-size:clamp(32px,5vw,54px);letter-spacing:-.045em;margin:8px 0 0}.section-head p{max-width:500px;color:var(--muted)}
-.grid{display:grid;gap:18px}.cards{grid-template-columns:repeat(3,1fr)}.card{background:rgba(13,20,32,.82);border:1px solid var(--line);border-radius:var(--radius);padding:25px;transition:.3s;position:relative;overflow:hidden}.card:before{content:"";position:absolute;inset:-1px;background:linear-gradient(120deg,transparent 30%,rgba(72,230,255,.08),transparent 65%);transform:translateX(-100%);transition:.6s}.card:hover:before{transform:translateX(100%)}.card:hover{transform:translateY(-7px);border-color:rgba(72,230,255,.3)}.icon{font-size:25px;margin-bottom:18px}.card h3{margin:0 0 8px;font-size:19px}.card p{color:var(--muted);font-size:14px;margin:0}.tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:17px}.tag{font-size:11px;color:#b9c9d8;border:1px solid var(--line);padding:5px 8px;border-radius:7px;background:#0a111b}
-.experience{display:grid;grid-template-columns:.25fr .75fr;gap:30px}.timeline{border-left:1px solid var(--line);padding-left:25px}.role{position:relative}.role:before{content:"";position:absolute;left:-31px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px rgba(72,230,255,.7)}.role h3{font-size:24px;margin:0}.meta{color:var(--cyan);font:12px ui-monospace,monospace;margin:5px 0 17px}.role ul{color:var(--muted);padding-left:19px}.role li{margin:10px 0}
-.skills{grid-template-columns:repeat(2,1fr)}.skillbox h3{margin-top:0}.skillrow{margin:16px 0}.skilltop{display:flex;justify-content:space-between;font-size:13px;margin-bottom:7px}.meter{height:7px;background:#172333;border-radius:99px;overflow:hidden}.meter i{display:block;height:100%;width:var(--w);background:linear-gradient(90deg,var(--cyan),var(--blue));border-radius:99px;animation:load 1.4s ease both}@keyframes load{from{width:0}}
-.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:25px}.terminal-card{background:#05090f;border:1px solid var(--line);border-radius:18px;padding:24px;font:13px/2 ui-monospace,monospace}.key{color:var(--cyan)}.value{color:#d7e3ee}.quote{font-size:28px;line-height:1.25;letter-spacing:-.03em;margin:0}.muted{color:var(--muted)}
-.contact{background:linear-gradient(135deg,rgba(72,230,255,.09),rgba(108,140,255,.06));border:1px solid rgba(72,230,255,.2);border-radius:28px;padding:48px}.contact h2{font-size:clamp(36px,6vw,66px);margin:8px 0}.contact p{color:var(--muted);max-width:650px}.contact-grid{display:flex;justify-content:space-between;gap:30px;align-items:end}.contact-info{display:grid;gap:7px;font-size:14px}.contact-info strong{color:var(--cyan)}footer{position:relative;z-index:2;padding:35px 0;color:#66798d;font-size:12px;border-top:1px solid var(--line)}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}.reveal.show{opacity:1;transform:none}.scanline{position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.25;animation:scan 4s linear infinite}@keyframes scan{from{top:0}to{top:100%}}
-@media(max-width:850px){.links{display:none}.hero-grid,.about,.experience{grid-template-columns:1fr}.console{transform:none}.cards,.skills{grid-template-columns:1fr 1fr}.hero{padding-top:60px}.contact-grid{display:grid}.section-head{display:block}}
-@media(max-width:560px){.cards,.skills{grid-template-columns:1fr}section{padding:70px 0}.hero{min-height:auto}.hero p{font-size:16px}.contact{padding:30px 22px}}
+
+*{
+  box-sizing:border-box
+}
+
+html{
+  scroll-behavior:smooth
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden
+}
+
+#app{
+  min-height:100vh;
+  background:var(--bg)
+}
+
+a{
+  color:inherit;
+  text-decoration:none
+}
+
+.wrap{
+  width:min(1160px,92vw);
+  margin:auto
+}
+
+#matrix{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  opacity:.13;
+  pointer-events:none
+}
+
+.noise{
+  position:fixed;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:4px 4px;
+  mix-blend-mode:screen
+}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:rgba(7,11,18,.72);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line)
+}
+
+.navin{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between
+}
+
+.brand{
+  font-weight:900;
+  letter-spacing:.08em
+}
+
+.brand span{
+  color:var(--cyan)
+}
+
+.links{
+  display:flex;
+  gap:24px;
+  color:var(--muted);
+  font-size:14px
+}
+
+.links a{
+  transition:.25s
+}
+
+.links a:hover{
+  color:var(--cyan)
+}
+
+.hero{
+  position:relative;
+  z-index:2;
+  min-height:calc(100vh - 70px);
+  display:grid;
+  place-items:center;
+  padding:90px 0 80px
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:50px;
+  align-items:center
+}
+
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  border:1px solid rgba(72,230,255,.25);
+  background:rgba(72,230,255,.06);
+  color:var(--cyan);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase
+}
+
+.dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 18px var(--green);
+  animation:pulse 1.7s infinite
+}
+
+@keyframes pulse{
+  50%{
+    opacity:.35;
+    transform:scale(.65)
+  }
+}
+
+h1{
+  font-size:clamp(52px,8vw,94px);
+  line-height:.9;
+  letter-spacing:-.065em;
+  margin:24px 0 24px
+}
+
+.gradient{
+  background:linear-gradient(100deg,var(--text),var(--cyan) 55%,var(--blue));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent
+}
+
+.hero p{
+  font-size:18px;
+  color:var(--muted);
+  max-width:680px
+}
+
+.cta{
+  display:flex;
+  gap:13px;
+  flex-wrap:wrap;
+  margin-top:30px
+}
+
+.btn{
+  padding:13px 18px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  background:var(--surface);
+  font-weight:800;
+  font-size:14px;
+  transition:.25s;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px
+}
+
+.btn.primary{
+  background:var(--cyan);
+  color:#031017;
+  border-color:var(--cyan)
+}
+
+.btn.github{
+  background:#111827;
+  border-color:rgba(255,255,255,.16)
+}
+
+.btn.linkedin{
+  background:#0a66c2;
+  border-color:#0a66c2;
+  color:white
+}
+
+.btn.resume{
+  background:rgba(255,159,67,.08);
+  border-color:rgba(255,159,67,.35);
+  color:#ffb56d
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(72,230,255,.12)
+}
+
+.console{
+  background:linear-gradient(145deg,rgba(17,27,42,.94),rgba(8,13,21,.94));
+  border:1px solid var(--line);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transform:perspective(1000px) rotateY(-4deg);
+  animation:float 5s ease-in-out infinite
+}
+
+@keyframes float{
+  50%{
+    transform:perspective(1000px) rotateY(-2deg) translateY(-8px)
+  }
+}
+
+.bar{
+  padding:13px 16px;
+  border-bottom:1px solid var(--line);
+  display:flex;
+  gap:7px
+}
+
+.ball{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#506070
+}
+
+.terminal{
+  padding:25px;
+  font:13px/2.05 ui-monospace,SFMono-Regular,Menlo,monospace;
+  color:#b9cad8
+}
+
+.prompt{
+  color:var(--cyan)
+}
+
+.ok{
+  color:var(--green)
+}
+
+.warn{
+  color:var(--orange)
+}
+
+.cursor{
+  display:inline-block;
+  width:8px;
+  height:16px;
+  background:var(--cyan);
+  vertical-align:-3px;
+  animation:blink 1s steps(2) infinite
+}
+
+@keyframes blink{
+  50%{
+    opacity:0
+  }
+}
+
+section{
+  position:relative;
+  z-index:2;
+  padding:95px 0
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:end;
+  margin-bottom:32px
+}
+
+.kicker{
+  font:800 12px ui-monospace,monospace;
+  color:var(--cyan);
+  letter-spacing:.18em;
+  text-transform:uppercase
+}
+
+.section-head h2{
+  font-size:clamp(32px,5vw,54px);
+  letter-spacing:-.045em;
+  margin:8px 0 0
+}
+
+.section-head p{
+  max-width:500px;
+  color:var(--muted)
+}
+
+.grid{
+  display:grid;
+  gap:18px
+}
+
+.cards{
+  grid-template-columns:repeat(3,1fr)
+}
+
+.card{
+  background:rgba(13,20,32,.82);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:25px;
+  transition:.3s;
+  position:relative;
+  overflow:hidden
+}
+
+.card:before{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  background:linear-gradient(120deg,transparent 30%,rgba(72,230,255,.08),transparent 65%);
+  transform:translateX(-100%);
+  transition:.6s
+}
+
+.card:hover:before{
+  transform:translateX(100%)
+}
+
+.card:hover{
+  transform:translateY(-7px);
+  border-color:rgba(72,230,255,.3)
+}
+
+.icon{
+  font-size:25px;
+  margin-bottom:18px
+}
+
+.card h3{
+  margin:0 0 8px;
+  font-size:19px
+}
+
+.card p{
+  color:var(--muted);
+  font-size:14px;
+  margin:0
+}
+
+.tags{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin-top:17px
+}
+
+.tag{
+  font-size:11px;
+  color:#b9c9d8;
+  border:1px solid var(--line);
+  padding:5px 8px;
+  border-radius:7px;
+  background:#0a111b
+}
+
+.experience{
+  display:grid;
+  grid-template-columns:.25fr .75fr;
+  gap:30px
+}
+
+.timeline{
+  border-left:1px solid var(--line);
+  padding-left:25px
+}
+
+.role{
+  position:relative
+}
+
+.role:before{
+  content:"";
+  position:absolute;
+  left:-31px;
+  top:7px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--cyan);
+  box-shadow:0 0 18px rgba(72,230,255,.7)
+}
+
+.role h3{
+  font-size:24px;
+  margin:0
+}
+
+.meta{
+  color:var(--cyan);
+  font:12px ui-monospace,monospace;
+  margin:5px 0 17px
+}
+
+.role ul{
+  color:var(--muted);
+  padding-left:19px
+}
+
+.role li{
+  margin:10px 0
+}
+
+.skills{
+  grid-template-columns:repeat(2,1fr)
+}
+
+.skillbox h3{
+  margin-top:0
+}
+
+.skillrow{
+  margin:16px 0
+}
+
+.skilltop{
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  margin-bottom:7px
+}
+
+.meter{
+  height:7px;
+  background:#172333;
+  border-radius:99px;
+  overflow:hidden
+}
+
+.meter i{
+  display:block;
+  height:100%;
+  width:var(--w);
+  background:linear-gradient(90deg,var(--cyan),var(--blue));
+  border-radius:99px;
+  animation:load 1.4s ease both
+}
+
+@keyframes load{
+  from{
+    width:0
+  }
+}
+
+.about{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:25px
+}
+
+.terminal-card{
+  background:#05090f;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:24px;
+  font:13px/2 ui-monospace,monospace
+}
+
+.key{
+  color:var(--cyan)
+}
+
+.value{
+  color:#d7e3ee
+}
+
+.quote{
+  font-size:28px;
+  line-height:1.25;
+  letter-spacing:-.03em;
+  margin:0
+}
+
+.muted{
+  color:var(--muted)
+}
+
+.contact{
+  background:linear-gradient(135deg,rgba(72,230,255,.09),rgba(108,140,255,.06));
+  border:1px solid rgba(72,230,255,.2);
+  border-radius:28px;
+  padding:48px
+}
+
+.contact h2{
+  font-size:clamp(36px,6vw,66px);
+  margin:8px 0
+}
+
+.contact p{
+  color:var(--muted);
+  max-width:650px
+}
+
+.contact-grid{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:end
+}
+
+.contact-info{
+  display:grid;
+  gap:7px;
+  font-size:14px
+}
+
+.contact-info strong{
+  color:var(--cyan)
+}
+
+.contact-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:25px
+}
+
+footer{
+  position:relative;
+  z-index:2;
+  padding:35px 0;
+  color:#66798d;
+  font-size:12px;
+  border-top:1px solid var(--line)
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(24px);
+  transition:opacity .8s ease,transform .8s ease
+}
+
+.reveal.show{
+  opacity:1;
+  transform:none
+}
+
+.scanline{
+  position:absolute;
+  left:0;
+  right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+  opacity:.25;
+  animation:scan 4s linear infinite
+}
+
+@keyframes scan{
+  from{
+    top:0
+  }
+  to{
+    top:100%
+  }
+}
+
+@media(max-width:850px){
+
+  .links{
+    display:none
+  }
+
+  .hero-grid,
+  .about,
+  .experience{
+    grid-template-columns:1fr
+  }
+
+  .console{
+    transform:none
+  }
+
+  .cards,
+  .skills{
+    grid-template-columns:1fr 1fr
+  }
+
+  .hero{
+    padding-top:60px
+  }
+
+  .contact-grid{
+    display:grid
+  }
+
+  .section-head{
+    display:block
+  }
+}
+
+@media(max-width:560px){
+
+  .cards,
+  .skills{
+    grid-template-columns:1fr
+  }
+
+  section{
+    padding:70px 0
+  }
+
+  .hero{
+    min-height:auto
+  }
+
+  .hero p{
+    font-size:16px
+  }
+
+  .contact{
+    padding:30px 22px
+  }
+
+  .cta,
+  .contact-buttons{
+    flex-direction:column
+  }
+
+  .btn{
+    width:100%
+  }
+}
 </style>
 </head>
+
 <body>
+
 <div id="app">
-<canvas id="matrix"></canvas><div class="noise"></div>
-<nav><div class="wrap navin"><a class="brand" href="#top">SM<span>_SEC</span></a><div class="links"><a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#certs">Certifications</a><a href="#contact">Contact</a></div></div></nav>
+
+<canvas id="matrix"></canvas>
+<div class="noise"></div>
+
+<nav>
+  <div class="wrap navin">
+
+    <a class="brand" href="#top">
+      SM<span>_SEC</span>
+    </a>
+
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+  </div>
+</nav>
+
 <main id="top">
-<section class="hero"><div class="wrap hero-grid"><div class="reveal"><div class="eyebrow"><span class="dot"></span> Available for immediate joining</div><h1>Shashank<br><span class="gradient">Madre.</span></h1><p>Cybersecurity Analyst focused on <b>VAPT, Web Application Security, Application Security and Ethical Hacking</b> — turning vulnerabilities into actionable security improvements.</p><div class="cta"><a class="btn primary" href="#contact">Let’s connect →</a><a class="btn" href="#experience">View experience</a></div></div><div class="console reveal"><div class="bar"><i class="ball"></i><i class="ball"></i><i class="ball"></i></div><div class="terminal"><div><span class="prompt">shashank@sec</span>:~$ whoami</div><div>Cybersecurity Analyst / VAPT</div><br><div><span class="prompt">shashank@sec</span>:~$ skills --core</div><div><span class="ok">✓</span> Web Application Security</div><div><span class="ok">✓</span> OWASP Top 10</div><div><span class="ok">✓</span> API Security</div><div><span class="ok">✓</span> Security Hardening</div><br><div><span class="prompt">shashank@sec</span>:~$ status</div><div><span class="ok">● ONLINE</span> | Pune, India</div><div><span class="warn">→</span> Ready for the next challenge <span class="cursor"></span></div></div></div></div><div class="scanline"></div></section>
-<section id="about"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">01 / profile</div><h2>Security-minded.<br>Detail-driven.</h2></div><p>Hands-on experience across web security testing, VAPT, vulnerability validation, reporting and remediation checks.</p></div><div class="about"><div class="terminal-card reveal"><div><span class="key">role</span>: <span class="value">"Cybersecurity Analyst"</span></div><div><span class="key">focus</span>: <span class="value">"VAPT / AppSec"</span></div><div><span class="key">location</span>: <span class="value">"Pune, India"</span></div><div><span class="key">experience</span>: <span class="value">"Jan 2026 — Present"</span></div><div><span class="key">education</span>: <span class="value">"B.E. Information Technology"</span></div><div><span class="key">availability</span>: <span class="value">"Immediate"</span></div></div><div class="card reveal"><p class="quote">“Find the weakness. Understand the impact. Validate the fix.”</p><p class="muted" style="margin-top:22px">My approach combines practical testing with clear reporting and post-remediation validation, with a strong focus on application security and penetration testing.</p></div></div></div></section>
-<section id="experience"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">02 / experience</div><h2>Where I’ve been<br>hands-on.</h2></div></div><div class="experience"><div class="muted">01<br>2026 →</div><div class="timeline reveal"><div class="role"><h3>Cybersecurity / VAPT Intern</h3><div class="meta">INNOWAY TECHNOLOGY · PUNE · JAN 2026 — PRESENT</div><ul><li>Performed Web Application Security Testing and VAPT using OWASP methodologies and industry-standard security practices.</li><li>Conducted testing with Burp Suite, Nmap, OWASP ZAP, cURL and browser Developer Tools.</li><li>Identified and validated security misconfigurations, missing security headers, information disclosure and WordPress security weaknesses.</li><li>Performed API security testing including request/response analysis, parameter testing and access-control validation.</li><li>Reviewed CSP, HSTS, Permissions-Policy, cookies, HTTPS, Apache/.htaccess and server security configurations.</li><li>Prepared VAPT reports, security checklists, remediation recommendations and performed post-remediation validation.</li></ul></div></div></div></div></section>
-<section id="skills"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">03 / toolkit</div><h2>My security<br>stack.</h2></div><p>Tools and technical areas directly represented in my current experience and resume.</p></div><div class="grid skills"><div class="card skillbox reveal"><h3>Cybersecurity</h3><div class="skillrow"><div class="skilltop"><span>VAPT / Vulnerability Assessment</span><span>●</span></div><div class="meter"><i style="--w:92%"></i></div></div><div class="skillrow"><div class="skilltop"><span>Web Application Security</span><span>●</span></div><div class="meter"><i style="--w:90%"></i></div></div><div class="skillrow"><div class="skilltop"><span>OWASP Top 10</span><span>●</span></div><div class="meter"><i style="--w:88%"></i></div></div><div class="tags"><span class="tag">Security Misconfiguration</span><span class="tag">Security Headers</span></div></div><div class="card skillbox reveal"><h3>Tools & Systems</h3><div class="tags" style="margin-top:6px"><span class="tag">Burp Suite</span><span class="tag">Nmap</span><span class="tag">OWASP ZAP</span><span class="tag">Wireshark</span><span class="tag">Nikto</span><span class="tag">Gobuster</span><span class="tag">cURL</span><span class="tag">Shodan</span><span class="tag">Kali Linux</span><span class="tag">Ubuntu</span><span class="tag">Windows 10/11</span><span class="tag">Windows Server</span></div></div><div class="card skillbox reveal"><h3>Networking</h3><div class="tags" style="margin-top:6px"><span class="tag">TCP/IP</span><span class="tag">OSI Model</span><span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">HTTP/HTTPS</span><span class="tag">Routing</span><span class="tag">Switching</span></div></div><div class="card skillbox reveal"><h3>Web & Infrastructure</h3><div class="tags" style="margin-top:6px"><span class="tag">REST API Testing</span><span class="tag">WordPress Security</span><span class="tag">SSL/TLS</span><span class="tag">HTTP Headers</span><span class="tag">Apache/.htaccess</span><span class="tag">cPanel</span><span class="tag">PHP</span></div></div></div></div></section>
-<section id="certs"><div class="wrap"><div class="section-head reveal"><div><div class="kicker">04 / credentials</div><h2>Certified to<br>keep learning.</h2></div></div><div class="grid cards"><div class="card reveal"><div class="icon">◈</div><h3>CEH</h3><p>Certified Ethical Hacker</p><div class="tags"><span class="tag">Ethical Hacking</span></div></div><div class="card reveal"><div class="icon">⌁</div><h3>CCNA</h3><p>Cisco Certified Network Associate</p><div class="tags"><span class="tag">Networking</span></div></div><div class="card reveal"><div class="icon">⬡</div><h3>CPENT</h3><p>Certified Penetration Testing Professional</p><div class="tags"><span class="tag">Penetration Testing</span></div></div></div></div></section>
-<section><div class="wrap"><div class="section-head reveal"><div><div class="kicker">05 / education & leadership</div><h2>Beyond the<br>toolset.</h2></div></div><div class="grid cards"><div class="card reveal"><h3>B.E. — Information Technology</h3><p>HVPM College of Engineering and Technology · 2020–2024 · CGPA 7.43</p></div><div class="card reveal"><h3>Leadership</h3><p>Cyber Web Club — Coordinator<br>NSS — Coordinator<br>Surjan Club — Coordinator</p></div><div class="card reveal"><h3>Working style</h3><p>Hands-on testing, structured reporting, security checklists, remediation recommendations and validation.</p></div></div></div></section>
-<section id="contact"><div class="wrap"><div class="contact reveal"><div class="contact-grid"><div><div class="kicker">06 / contact</div><h2>Let’s secure<br>something.</h2><p>Open to onsite / hybrid opportunities and available for immediate joining. If you’re hiring for cybersecurity, VAPT or application security roles, let’s talk.</p></div><div class="contact-info"><div><strong>Email</strong><br><a href="mailto:shashankmadre262@gmail.com">shashankmadre262@gmail.com</a></div><div><strong>Phone</strong><br><a href="tel:+918806737994">+91 8806737994</a></div><div><strong>Location</strong><br>Pune, India</div></div></div></div></div></section>
-</main><footer><div class="wrap">© 2026 Shashank Madre · Cybersecurity Analyst · Built around VAPT, AppSec & ethical hacking.</div></footer>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="wrap hero-grid">
+
+    <div class="reveal">
+
+      <div class="eyebrow">
+        <span class="dot"></span>
+        Available for immediate joining
+      </div>
+
+      <h1>
+        Shashank<br>
+        <span class="gradient">Madre.</span>
+      </h1>
+
+      <p>
+        Cybersecurity Analyst focused on
+        <b>VAPT, Web Application Security, Application Security and Ethical Hacking</b>
+        — turning vulnerabilities into actionable security improvements.
+      </p>
+
+      <div class="cta">
+
+        <a class="btn primary" href="#contact">
+          Let’s connect →
+        </a>
+
+        <a class="btn" href="#experience">
+          View experience
+        </a>
+
+        <!-- DOWNLOAD RESUME BUTTON -->
+        <a class="btn resume" href="resume.pdf" download>
+          ↓ Download Resume
+        </a>
+
+        <!-- GITHUB BUTTON -->
+        <a
+          class="btn github"
+          href="https://github.com/shashankmadre"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub ↗
+        </a>
+
+        <!-- LINKEDIN BUTTON -->
+        <a
+          class="btn linkedin"
+          href="https://www.linkedin.com/in/shashank-madre-22a1a3241/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn ↗
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="console reveal">
+
+      <div class="bar">
+        <i class="ball"></i>
+        <i class="ball"></i>
+        <i class="ball"></i>
+      </div>
+
+      <div class="terminal">
+
+        <div>
+          <span class="prompt">shashank@sec</span>:~$ whoami
+        </div>
+
+        <div>
+          Cybersecurity Analyst / VAPT
+        </div>
+
+        <br>
+
+        <div>
+          <span class="prompt">shashank@sec</span>:~$ skills --core
+        </div>
+
+        <div>
+          <span class="ok">✓</span>
+          Web Application Security
+        </div>
+
+        <div>
+          <span class="ok">✓</span>
+          OWASP Top 10
+        </div>
+
+        <div>
+          <span class="ok">✓</span>
+          API Security
+        </div>
+
+        <div>
+          <span class="ok">✓</span>
+          Security Hardening
+        </div>
+
+        <br>
+
+        <div>
+          <span class="prompt">shashank@sec</span>:~$ status
+        </div>
+
+        <div>
+          <span class="ok">● ONLINE</span>
+          | Pune, India
+        </div>
+
+        <div>
+          <span class="warn">→</span>
+          Ready for the next challenge
+          <span class="cursor"></span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="scanline"></div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="kicker">
+          01 / profile
+        </div>
+
+        <h2>
+          Security-minded.<br>
+          Detail-driven.
+        </h2>
+
+      </div>
+
+      <p>
+        Hands-on experience across web security testing, VAPT,
+        vulnerability validation, reporting and remediation checks.
+      </p>
+
+    </div>
+
+
+    <div class="about">
+
+      <div class="terminal-card reveal">
+
+        <div>
+          <span class="key">role</span>:
+          <span class="value">"Cybersecurity Analyst"</span>
+        </div>
+
+        <div>
+          <span class="key">focus</span>:
+          <span class="value">"VAPT / AppSec"</span>
+        </div>
+
+        <div>
+          <span class="key">location</span>:
+          <span class="value">"Pune, India"</span>
+        </div>
+
+        <div>
+          <span class="key">experience</span>:
+          <span class="value">"Jan 2026 — Present"</span>
+        </div>
+
+        <div>
+          <span class="key">education</span>:
+          <span class="value">"B.E. Information Technology"</span>
+        </div>
+
+        <div>
+          <span class="key">availability</span>:
+          <span class="value">"Immediate"</span>
+        </div>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <p class="quote">
+          “Find the weakness. Understand the impact. Validate the fix.”
+        </p>
+
+        <p class="muted" style="margin-top:22px">
+
+          My approach combines practical testing with clear reporting
+          and post-remediation validation, with a strong focus on
+          application security and penetration testing.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="kicker">
+          02 / experience
+        </div>
+
+        <h2>
+          Where I’ve been<br>
+          hands-on.
+        </h2>
+
+      </div>
+
+    </div>
+
+
+    <div class="experience">
+
+      <div class="muted">
+        01<br>
+        2026 →
+      </div>
+
+      <div class="timeline reveal">
+
+        <div class="role">
+
+          <h3>
+            Cybersecurity / VAPT Intern
+          </h3>
+
+          <div class="meta">
+            INNOWAY TECHNOLOGY · PUNE · JAN 2026 — PRESENT
+          </div>
+
+          <ul>
+
+            <li>
+              Performed Web Application Security Testing and VAPT
+              using OWASP methodologies and industry-standard security practices.
+            </li>
+
+            <li>
+              Conducted testing with Burp Suite, Nmap, OWASP ZAP,
+              cURL and browser Developer Tools.
+            </li>
+
+            <li>
+              Identified and validated security misconfigurations,
+              missing security headers, information disclosure and
+              WordPress security weaknesses.
+            </li>
+
+            <li>
+              Performed API security testing including request/response
+              analysis, parameter testing and access-control validation.
+            </li>
+
+            <li>
+              Reviewed CSP, HSTS, Permissions-Policy, cookies,
+              HTTPS, Apache/.htaccess and server security configurations.
+            </li>
+
+            <li>
+              Prepared VAPT reports, security checklists,
+              remediation recommendations and performed
+              post-remediation validation.
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="kicker">
+          03 / toolkit
+        </div>
+
+        <h2>
+          My security<br>
+          stack.
+        </h2>
+
+      </div>
+
+      <p>
+        Tools and technical areas directly represented
+        in my current experience and resume.
+      </p>
+
+    </div>
+
+
+    <div class="grid skills">
+
+
+      <div class="card skillbox reveal">
+
+        <h3>
+          Cybersecurity
+        </h3>
+
+        <div class="skillrow">
+
+          <div class="skilltop">
+            <span>VAPT / Vulnerability Assessment</span>
+            <span>●</span>
+          </div>
+
+          <div class="meter">
+            <i style="--w:92%"></i>
+          </div>
+
+        </div>
+
+
+        <div class="skillrow">
+
+          <div class="skilltop">
+            <span>Web Application Security</span>
+            <span>●</span>
+          </div>
+
+          <div class="meter">
+            <i style="--w:90%"></i>
+          </div>
+
+        </div>
+
+
+        <div class="skillrow">
+
+          <div class="skilltop">
+            <span>OWASP Top 10</span>
+            <span>●</span>
+          </div>
+
+          <div class="meter">
+            <i style="--w:88%"></i>
+          </div>
+
+        </div>
+
+
+        <div class="tags">
+
+          <span class="tag">
+            Security Misconfiguration
+          </span>
+
+          <span class="tag">
+            Security Headers
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="card skillbox reveal">
+
+        <h3>
+          Tools & Systems
+        </h3>
+
+        <div class="tags" style="margin-top:6px">
+
+          <span class="tag">Burp Suite</span>
+          <span class="tag">Nmap</span>
+          <span class="tag">OWASP ZAP</span>
+          <span class="tag">Wireshark</span>
+          <span class="tag">Nikto</span>
+          <span class="tag">Gobuster</span>
+          <span class="tag">cURL</span>
+          <span class="tag">Shodan</span>
+          <span class="tag">Kali Linux</span>
+          <span class="tag">Ubuntu</span>
+          <span class="tag">Windows 10/11</span>
+          <span class="tag">Windows Server</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="card skillbox reveal">
+
+        <h3>
+          Networking
+        </h3>
+
+        <div class="tags" style="margin-top:6px">
+
+          <span class="tag">TCP/IP</span>
+          <span class="tag">OSI Model</span>
+          <span class="tag">DNS</span>
+          <span class="tag">DHCP</span>
+          <span class="tag">HTTP/HTTPS</span>
+          <span class="tag">Routing</span>
+          <span class="tag">Switching</span>
+
+        </div>
+
+      </div>
+
+
+      <div class="card skillbox reveal">
+
+        <h3>
+          Web & Infrastructure
+        </h3>
+
+        <div class="tags" style="margin-top:6px">
+
+          <span class="tag">REST API Testing</span>
+          <span class="tag">WordPress Security</span>
+          <span class="tag">SSL/TLS</span>
+          <span class="tag">HTTP Headers</span>
+          <span class="tag">Apache/.htaccess</span>
+          <span class="tag">cPanel</span>
+          <span class="tag">PHP</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CERTIFICATIONS -->
+
+<section id="certs">
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="kicker">
+          04 / credentials
+        </div>
+
+        <h2>
+          Certified to<br>
+          keep learning.
+        </h2>
+
+      </div>
+
+    </div>
+
+
+    <div class="grid cards">
+
+
+      <div class="card reveal">
+
+        <div class="icon">
+          ◈
+        </div>
+
+        <h3>
+          CEH
+        </h3>
+
+        <p>
+          Certified Ethical Hacker
+        </p>
+
+        <div class="tags">
+          <span class="tag">
+            Ethical Hacking
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <div class="icon">
+          ⌁
+        </div>
+
+        <h3>
+          CCNA
+        </h3>
+
+        <p>
+          Cisco Certified Network Associate
+        </p>
+
+        <div class="tags">
+          <span class="tag">
+            Networking
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <div class="icon">
+          ⬡
+        </div>
+
+        <h3>
+          CPENT
+        </h3>
+
+        <p>
+          Certified Penetration Testing Professional
+        </p>
+
+        <div class="tags">
+          <span class="tag">
+            Penetration Testing
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section>
+
+  <div class="wrap">
+
+    <div class="section-head reveal">
+
+      <div>
+
+        <div class="kicker">
+          05 / education & leadership
+        </div>
+
+        <h2>
+          Beyond the<br>
+          toolset.
+        </h2>
+
+      </div>
+
+    </div>
+
+
+    <div class="grid cards">
+
+
+      <div class="card reveal">
+
+        <h3>
+          B.E. — Information Technology
+        </h3>
+
+        <p>
+          HVPM College of Engineering and Technology
+          · 2020–2024 · CGPA 7.43
+        </p>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3>
+          Leadership
+        </h3>
+
+        <p>
+          Cyber Web Club — Coordinator<br>
+          NSS — Coordinator<br>
+          Surjan Club — Coordinator
+        </p>
+
+      </div>
+
+
+      <div class="card reveal">
+
+        <h3>
+          Working style
+        </h3>
+
+        <p>
+          Hands-on testing, structured reporting,
+          security checklists, remediation recommendations
+          and validation.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+  <div class="wrap">
+
+    <div class="contact reveal">
+
+      <div class="contact-grid">
+
+        <div>
+
+          <div class="kicker">
+            06 / contact
+          </div>
+
+          <h2>
+            Let’s secure<br>
+            something.
+          </h2>
+
+          <p>
+            Open to onsite / hybrid opportunities and available
+            for immediate joining. If you’re hiring for cybersecurity,
+            VAPT or application security roles, let’s talk.
+          </p>
+
+          <!-- CONTACT BUTTONS -->
+
+          <div class="contact-buttons">
+
+            <a
+              class="btn primary"
+              href="mailto:shashankmadre262@gmail.com"
+            >
+              ✉ Email Me
+            </a>
+
+            <a
+              class="btn github"
+              href="https://github.com/shashankmadre"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub ↗
+            </a>
+
+            <a
+              class="btn linkedin"
+              href="https://www.linkedin.com/in/shashank-madre-22a1a3241/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn ↗
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="contact-info">
+
+          <div>
+
+            <strong>
+              Email
+            </strong>
+
+            <br>
+
+            <a href="mailto:shashankmadre262@gmail.com">
+              shashankmadre262@gmail.com
+            </a>
+
+          </div>
+
+
+          <div>
+
+            <strong>
+              Phone
+            </strong>
+
+            <br>
+
+            <a href="tel:+918806737994">
+              +91 8806737994
+            </a>
+
+          </div>
+
+
+          <div>
+
+            <strong>
+              Location
+            </strong>
+
+            <br>
+
+            Pune, India
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+  <div class="wrap">
+
+    © 2026 Shashank Madre · Cybersecurity Analyst ·
+    Built around VAPT, AppSec & ethical hacking.
+
+  </div>
+
+</footer>
+
 </div>
+
+
 <script>
-const c=document.getElementById('matrix'),ctx=c.getContext('2d');let w,h,cols,drops;function size(){w=c.width=innerWidth;h=c.height=innerHeight;cols=Math.floor(w/17);drops=Array(cols).fill(1)}function draw(){ctx.fillStyle='rgba(7,11,18,.13)';ctx.fillRect(0,0,w,h);ctx.fillStyle='#48e6ff';ctx.font='12px monospace';drops.forEach((y,i)=>{const t='01<>/{}[]#$%';ctx.fillText(t[Math.floor(Math.random()*t.length)],i*17,y*17);if(y*17>h&&Math.random()>.975)drops[i]=0;drops[i]++})}addEventListener('resize',size);size();setInterval(draw,55);
-const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+
+const c=document.getElementById('matrix');
+
+const ctx=c.getContext('2d');
+
+let w,h,cols,drops;
+
+function size(){
+
+  w=c.width=innerWidth;
+  h=c.height=innerHeight;
+
+  cols=Math.floor(w/17);
+
+  drops=Array(cols).fill(1);
+
+}
+
+function draw(){
+
+  ctx.fillStyle='rgba(7,11,18,.13)';
+
+  ctx.fillRect(0,0,w,h);
+
+  ctx.fillStyle='#48e6ff';
+
+  ctx.font='12px monospace';
+
+  drops.forEach((y,i)=>{
+
+    const t='01<>/{}[]#$%';
+
+    ctx.fillText(
+      t[Math.floor(Math.random()*t.length)],
+      i*17,
+      y*17
+    );
+
+    if(y*17>h&&Math.random()>.975)
+      drops[i]=0;
+
+    drops[i]++;
+
+  });
+
+}
+
+addEventListener('resize',size);
+
+size();
+
+setInterval(draw,55);
+
+
+const obs=new IntersectionObserver(
+
+  es=>es.forEach(e=>{
+
+    if(e.isIntersecting)
+      e.target.classList.add('show');
+
+  }),
+
+  {
+    threshold:.12
+  }
+
+);
+
+document
+  .querySelectorAll('.reveal')
+  .forEach(e=>obs.observe(e));
+
 </script>
-</body></html>
+
+</body>
+</html>
